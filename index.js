@@ -1,59 +1,66 @@
-const inquirer = require("inquirer");
-const fs = require("fs");
-const generateMarkdown = require("./utils/generateMarkdown.js");
+var inquirer = require("inquirer");
+var fs = require("fs");
+var path = require("path");
+var generateMarkdown = require("./utils/generateMarkdown");
 
 // array of questions for user
 const questions = [
     {
     type: "input",
-    name: "What is project name?",
-    message: "Title",
+    name: "Title",
+    message: "What is project name?",
     },
     {
     type: "input",
-    name: "Describe your project.",
-    message: "Description",
+    name: "Description",
+    message: "Describe your project.",
     },
     {
     type: "input",
-    name: "What are the necessary steps for the install.",
-    message: "Installation",
+    name: "Installation",
+    message: "What are the necessary steps for the install?",
     }, 
     {
     type: "input",
-    name: "What is the usage info?",
-    message: "Usage",
+    name: "Usage",
+    message: "What is the usage info?",
     },
     {
     type: "input",
-    name: "What are the license that the project should have?",
-    message: "License",
+    name: "License",
+    message: "What are the license that the project should have?",
     },
     {
     type: "input",
-    name: "What are the instructions?",
-    message: "Test",
+    name: "Test",
+    message: "What are the instructions?",
     },
     {
     type: "input",
-    name: "What is the contribution or what is needed for the repo?",
-    message: "Contributing",
+    name: "Contributing",
+    message: "What is the contribution or what is needed for the repo?",
     }, 
     {
     type: "input",
-    name: "If you need help this is how to contact me.",
-    message: "Questions",
+    name: "Questions",
+    message: "If you need help this is how to contact me.",
     },
 ];
 
 // function to write README file
 function writeToFile(fileName, data) {
     console.log(data)
+    return fs.writeFileSync(path.join(process.cwd(),fileName),data);
 }
 
 // function to initialize program
 function init() {
+    inquirer
+    .prompt(questions)
+    .then(function(response) {
 
+        writeToFile("Readme.md", generateMarkdown(response));
+    });
 }
 
 // function call to initialize program
