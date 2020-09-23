@@ -3,7 +3,7 @@ var fs = require("fs");
 var path = require("path");
 var generateMarkdown = require("./utils/generateMarkdown");
 
-// array of questions for user
+// questions for the user
 const questions = [
     {
     type: "input",
@@ -47,7 +47,7 @@ const questions = [
     },
 ];
 
-// function to write README file
+// Readme file
 function writeToFile(fileName, data) {
     console.log(data)
     return fs.writeFileSync(path.join(process.cwd(),fileName),data);
@@ -63,5 +63,5 @@ function init() {
     });
 }
 
-// function call to initialize program
+// initialize program
 init();

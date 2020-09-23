@@ -20,7 +20,7 @@ function generateMarkdown(data) {
   ${data.Usage}
 
   ## License
-  ${data.License}
+  The application is under the ${data.License} license 
 
   ## Contributing
   ${data.Contributing}
