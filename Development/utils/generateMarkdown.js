@@ -9,8 +9,8 @@ function generateMarkdown(data) {
   * [Installation](#installation)
   * [Usage](#usage)
   * [License](#license)
-  * [Contributing](#contributing)
   * [Tests](#tests)
+  * [Contributing](#contributing)
   * [Questions](#questions)
   
   ## Installation
@@ -22,11 +22,11 @@ function generateMarkdown(data) {
   ## License
   The application is under the ${data.License} license 
 
+  ## Test
+  ${data.Test}
+
   ## Contributing
   ${data.Contributing}
-
-  ## Tests
-  ${data.Tests}
   
   ## Questions
   ${data.Questions}
